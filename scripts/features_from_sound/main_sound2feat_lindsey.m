@@ -42,7 +42,7 @@ plot(raw_data{1});
 
 %% Get audio features: 3D Tensor data
 size_sound_feats = 10; %default = 600
-save_root = 'saved_mats/lindsey/features_from_sound/';
+save_root = 'saved_mats/lindsey/features_from_sound/train/';
 save_to_filename = strcat([save_root, 'sound_features_dataset2_lindsey_size', num2str(size_sound_feats), '_v7_raw']);
 
 size_sound_feats_10 = size_sound_feats/10;

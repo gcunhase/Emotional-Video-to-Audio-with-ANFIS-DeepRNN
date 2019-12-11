@@ -15,52 +15,30 @@ G2 = createGabor(orientationsPerScale, imageSize);
 %%Convert all to mpg from now on
 file_name_raw_pos = {};
 movie_id = {};
-for i=1:10
+video_id = 8;
+for i=video_id:video_id
     movie_id{end+1} = i;
     file_name_raw_pos{end+1} = strcat(['dataset/deap dataset/test dataset/', num2str(i), '.mp4']);
 end
 
 n = 10;  % 10  % 240;
-save_root = 'saved_mats/deap/features_from_visual/';
+save_root = 'saved_mats/deap/features_from_visual/test_individual/';
+vid = get_video_components_totalVideo(file_name_raw_pos{1}, n);
+[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid,G2,H_data2,S_data2,L_data2,O_data2,1);
 
-%%Save videos
-%vid_arr = {};
-%for i=1:10
-%    vid = get_video_components_totalVideo(file_name_raw_pos{i}, n);
-%    vid_arr{end+1} = vid;
-%    save(strcat([save_root, 'videos_dataset_deap_test_vid', num2str(i), '_', num2str(n), '.mat']), 'vid');
-%    clear vid;
-%end
-
-%%Load videos
-vid_arr = {};
-for i=1:10
-    data_name = strcat([save_root, 'videos_dataset_deap_test_vid', num2str(i), '_', num2str(n), '.mat']);
-    load(data_name, 'vid');
-    vid_arr{end+1} = vid;
-end
-% load videos_dataset_lindsey_vid3_1200 vid3;
-% load videos_dataset_lindsey_vid8_1200 vid8;
-% load videos_dataset_lindsey_vid9_1200 vid9;
-
-for i=1:10
-    %load videos video_final1;
-    [H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid_arr{i},G2,H_data2,S_data2,L_data2,O_data2,i);
-end
-
-save(strcat([save_root, 'HSLO_data_dataset_deap_test_', num2str(n), '.mat']), 'H_data2', 'S_data2', 'L_data2', 'O_data2', 'movie_id');
+save(strcat([save_root, 'HSLO_data_dataset_deap_test_', num2str(n), '_video', num2str(video_id), '.mat']), 'H_data2', 'S_data2', 'L_data2', 'O_data2', 'movie_id');
 %%-----End of GWENA'S MODIFICATION
 
 %% 1
 clc
 %clear all;
 
-load(strcat([save_root, 'HSLO_data_dataset_deap_test_', num2str(n), '.mat']));
+load(strcat([save_root, 'HSLO_data_dataset_deap_test_', num2str(n), '_video', num2str(video_id), '.mat']));
 %load EEG_GIST
 
 %----------------random select ----------------------------
 %3 videos
-n_videos = 10;
+n_videos = 1;
 [A num_sort] = sort(rand(1,n_videos));
 train_num = num_sort(1:n_videos);
 
@@ -145,5 +123,5 @@ Feature_train = temp;
 
 %save feature_dataset2_1200 Feature_train
 %save number_of_sort_dataset2_1200 num_sort number_items
-save(strcat([save_root, 'feature_dataset_deap_test_', num2str(n), '_v7']), 'Feature_train', 'movie_id', '-v7');
-save(strcat([save_root, 'number_of_sort_dataset_deap_test_', num2str(n), '_v7']), 'num_sort', 'number_items', '-v7');
+save(strcat([save_root, 'feature_dataset_deap_test_', num2str(n), '_video', num2str(video_id), '_v7']), 'Feature_train', 'movie_id', '-v7');
+save(strcat([save_root, 'number_of_sort_dataset_deap_test_', num2str(n), '_video', num2str(video_id), '_v7']), 'num_sort', 'number_items', '-v7');

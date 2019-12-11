@@ -42,8 +42,10 @@ end
 
 %% Get audio features: 3D Tensor data
 size_sound_feats = 10; %default = 600
-save_root = 'saved_mats/lindsey/features_from_sound/';
+save_root = 'saved_mats/lindsey/features_from_sound/test/';
+%save_root = 'saved_mats/lindsey/features_from_sound/test_individual/';
 save_to_filename = strcat([save_root, 'sound_features_dataset2_lindsey_testAll_size', num2str(size_sound_feats), '_v7_raw']);
+%save_to_filename = strcat([save_root, 'sound_features_dataset2_lindsey_testAll_video8_size', num2str(size_sound_feats), '_v7_raw']);
 
 size_sound_feats_10 = size_sound_feats/10;
 total_sound = zeros(30,size_sound_feats_10,s_files);

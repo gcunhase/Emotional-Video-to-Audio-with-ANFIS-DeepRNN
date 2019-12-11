@@ -13,58 +13,34 @@ G2 = createGabor(orientationsPerScale, imageSize);
 %%%%% fuzzy cluster means
 %%-----Beginning of GWENA'S MODIFICATION
 %%Convert all to mpg
-file1 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/1 - Roundtable.mp4';
-file2 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/2 - Beyond the veil.mp4';
-file3 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/3 - Phantom of the Opera.mp4';
-file4 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/4 - Take Flight.mp4';
-file5 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/5 - Crystallize.mp4';
-file6 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/6 - Moon Trance.mp4';
-file7 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/7 - LOTR Medley.mp4';
-file8 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/8 - Elements.mp4';
-
-% % %%Save videos
-n=7; %(256, 256, 3, 6)
-vid1 = get_video_components_totalVideo(file1, n);
-vid2 = get_video_components_totalVideo(file2, n);
-vid3 = get_video_components_totalVideo(file3, n);
-vid4 = get_video_components_totalVideo(file4, n);
-vid5 = get_video_components_totalVideo(file5, n);
-vid6 = get_video_components_totalVideo(file6, n);
-vid7 = get_video_components_totalVideo(file7, n);
-vid8 = get_video_components_totalVideo(file8, n);
-
-save_root = 'saved_mats/lindsey/features_from_visual/';
-save(strcat([save_root, 'videos_dataset2_testVideoAll_lindsey_vids_8']),...
-    'vid1', 'vid2', 'vid3', 'vid4', 'vid5', 'vid6', 'vid7', 'vid8');
-
+%file1 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/1 - Roundtable.mp4';
+%file2 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/2 - Beyond the veil.mp4';
+%file3 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/3 - Phantom of the Opera.mp4';
+%file4 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/4 - Take Flight.mp4';
+%file5 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/5 - Crystallize.mp4';
+%file6 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/6 - Moon Trance.mp4';
+%file7 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/7 - LOTR Medley.mp4';
+%file8 = 'dataset/lindsey stirling dataset/test dataset/trimmed + obtained audio/8 - Elements.mp4';
 
 %%Load videos
-load(strcat([save_root, 'videos_dataset2_testVideoAll_lindsey_vids_8']), 'vid1', 'vid2', 'vid3', 'vid4', 'vid5', 'vid6', 'vid7', 'vid8');
+save_root = 'saved_mats/lindsey/features_from_visual/test_individual/';
+vid_num = 8;
 
+load(strcat([save_root, 'videos_dataset2_testVideoAll_lindsey_vids_8']), strcat(['vid', num2str(vid_num)]));
+vid = vid8;
 
-%%-----End of GWENA'S MODIFICATION
-%load videos video_final1;
-[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid1,G2,H_data2,S_data2,L_data2,O_data2,1); clear vid1;
-[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid2,G2,H_data2,S_data2,L_data2,O_data2,2); clear vid2;
-[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid3,G2,H_data2,S_data2,L_data2,O_data2,3); clear vid3;
-[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid4,G2,H_data2,S_data2,L_data2,O_data2,4); clear vid4;
-[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid5,G2,H_data2,S_data2,L_data2,O_data2,5); clear vid5;
-[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid6,G2,H_data2,S_data2,L_data2,O_data2,6); clear vid6;
-[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid7,G2,H_data2,S_data2,L_data2,O_data2,7); clear vid7;
-[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid8,G2,H_data2,S_data2,L_data2,O_data2,8); clear vid8;
+[H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid,G2,H_data2,S_data2,L_data2,O_data2,1); clear vid;
 
-save(strcat([save_root, 'HSLO_data_dataset2_testVideoAll_lindsey_8']), 'H_data2', 'S_data2', 'L_data2', 'O_data2');
+save(strcat([save_root, 'HSLO_data_dataset2_test_lindsey_video', num2str(vid_num)]), 'H_data2', 'S_data2', 'L_data2', 'O_data2');
 
 %% 1
-clc
-clear all;
 
-load(strcat([save_root, 'HSLO_data_dataset2_testVideoAll_lindsey_8']));
+load(strcat([save_root, 'HSLO_data_dataset2_test_lindsey_video', num2str(vid_num)]));
 %load EEG_GIST
 
 %----------------random select ----------------------------
 %3 videos
-number_items = 8;
+number_items = 1;
 [A num_sort] = sort(rand(1,number_items));
 train_num = num_sort(1:number_items);
 
@@ -155,5 +131,5 @@ Feature_train = temp;
 
 %save feature_dataset2_1200 Feature_train
 %save number_of_sort_dataset2_1200 num_sort number_items
-save(strcat([save_root, 'feature_dataset2_testVideoAll_lindsey_8_v7']), 'Feature_train', '-v7');
-save(strcat([save_root, 'number_of_sort_dataset2_testVideoAll_lindsey_8_v7']), 'num_sort', 'number_items', '-v7');
+save(strcat([save_root, 'feature_dataset2_test_lindsey_video', num2str(vid_num), '_v7']), 'Feature_train', '-v7');
+save(strcat([save_root, 'number_of_sort_dataset2_test_lindsey_video', num2str(vid_num), '_v7']), 'num_sort', 'number_items', '-v7');
