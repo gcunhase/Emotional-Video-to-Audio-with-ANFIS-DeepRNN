@@ -27,7 +27,7 @@ visual_feat_path_test = strcat([root_visual_feat_path, 'test/']);
 model_anfis_save_path = strcat([root_save, 'model_anfis/']); global model_anfis_save_path;
 model_seq2seq_save_path = strcat([root_save, 'model_', model_type, '/']); global model_seq2seq_save_path;
 
-results_path = strcat(['results/', dataset_name, '/', model_type, '/']); global results_path;
+results_path = strcat(['results/', dataset_name, '/', model_type, '_', emotion_dim, 'mos/']); global results_path;
 
 %% Load data
 if strcmp(emotion_dim, '2d')
