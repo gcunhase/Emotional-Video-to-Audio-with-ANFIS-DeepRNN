@@ -19,10 +19,10 @@ for key = keys(input_HSL_dict)
     [X_temp_emotion, T_temp_emotion] = format_data_for_seq2seq_model(X, T);
 
     % 2: train seq2seq
-    train_seq2seq_model(X_temp_emotion, T_temp_emotion, model_type, path_to_model, miniBatchSize, maxEpochs);
+    train_seq2seq_model(X_temp_emotion, T_temp_emotion, model_type, path_to_model);
 
     % 3: test seq2seq (predict)
-    T_pred_arr = test_seq2seq_model(X_temp_emotion, T_temp_emotion, path_to_model, model_type, miniBatchSize);
+    T_pred_arr = test_seq2seq_model(X_temp_emotion, T_temp_emotion, path_to_model);
         
     % 4. eval seq2seq (MAE value and plot)
     %mae_val = eval_seq2seq_model(T_pred_arr, T, plot_in_out_pos_high, model_type_emotion)

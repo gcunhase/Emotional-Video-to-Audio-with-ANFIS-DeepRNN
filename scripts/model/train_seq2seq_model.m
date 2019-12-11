@@ -1,5 +1,7 @@
-function [net] = train_seq2seq_model(X_temp, T_temp, model_type, path_to_model, miniBatchSize, maxEpochs)
+function [net] = train_seq2seq_model(X_temp, T_temp, model_type, path_to_model)
 
+    global miniBatchSize maxEpochs;
+    
     if strcmp(model_type, 'rnn')
         %net1_in_out_pos = layrecnet(1:3,[6 12]);
         net = layrecnet(1:3,12);
