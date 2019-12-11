@@ -4,10 +4,10 @@ function [out_final, final_audio_reshaped, audio_filename, predicted_audio_filen
 %   Look up table: TLR_database and audio_database (also named: output_TLR
 %   and output_audio_equivalent)
 
-    global results_path model_anfis_save_path model_seq2seq_save_path model_type emotion_dim;
+    global results_path model_anfis_save_path model_seq2seq_save_path model_type emotion_dim nummfs;
 
-    load(strcat([model_anfis_save_path, 'fuzzy_anfis_HSL_', emotion_dim, 'mos_4mfs_ep4000']));
-    load(strcat([model_anfis_save_path, 'fuzzy_anfis_TLR_', emotion_dim, 'mos_4mfs_ep4000']));
+    load(strcat([model_anfis_save_path, 'fuzzy_anfis_HSL_', emotion_dim, 'mos_', num2str(nummfs), 'mfs_ep4000']));
+    load(strcat([model_anfis_save_path, 'fuzzy_anfis_TLR_', emotion_dim, 'mos_', num2str(nummfs), 'mfs_ep4000']));
 
     path_to_model_pos_high = strcat([model_seq2seq_save_path, 'net_', model_type, '_pos_high_', emotion_dim, 'mos_12']);
     path_to_model_pos_low = strcat([model_seq2seq_save_path, 'net_', model_type, '_pos_low_', emotion_dim, 'mos_12']);
