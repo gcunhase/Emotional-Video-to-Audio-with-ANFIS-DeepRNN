@@ -4,12 +4,12 @@
 %% 1. Obtain dataset
 plot_bool = 0;
 if strcmp(dataset_name, 'lindsey')
-    [input_HSL, output_TLR, output_audio_equivalent, input_1dmos_num, output_1dmos_num, input_full, output_full] = getIO_HSL_TLR_equivAudio_1DMOS(plot_bool, visual_feat_path, sound_feat_path);
+    [input_HSL, output_TLR, output_audio_equivalent, input_mos_num, output_mos_num, input_full, output_full] = getIO_HSL_TLR_equivAudio_1DMOS(plot_bool, visual_feat_path, sound_feat_path);
 end
 
 %% 2. Check how many video excerpts in each class (used in ANFIS and Seq2Seq)
-class1_total = sum(input_1dmos_num == 1);
-class2_total = sum(input_1dmos_num == 0);
+class1_total = sum(input_mos_num == 1);
+class2_total = sum(input_mos_num == 0);
 
 
 %% 3. Divide dataset for Seq2Seq model (I-O Networks)
@@ -25,7 +25,7 @@ output_audio_equivalent_dict = containers.Map;
 output_audio_equivalent_dict('pos') = []; output_audio_equivalent_dict('neg') = [];
 
 for i=1:size(input_HSL,2)
-    if (input_1dmos_num(i) == 1) % +
+    if (input_mos_num(i) == 1) % +
         input_HSL_dict('pos') = [input_HSL_dict('pos'), input_HSL(:,i)];
         output_TLR_dict('pos') = [output_TLR_dict('pos'), output_TLR(:,i)];
         output_audio_equivalent_dict('pos') = [output_audio_equivalent_dict('pos'), output_audio_equivalent(:,i)];
