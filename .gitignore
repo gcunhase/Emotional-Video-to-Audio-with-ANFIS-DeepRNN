@@ -1,0 +1,6 @@
+.DS_Store
+dataset/*
+results/*
+saved_mats/*/features*
+*._*
+*.m~
