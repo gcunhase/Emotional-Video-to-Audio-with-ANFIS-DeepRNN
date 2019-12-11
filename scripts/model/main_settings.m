@@ -4,11 +4,17 @@
 
 clc; clear all;
 %% Settings
-emotion_dim = '1d'; global emotion_dim;
+num_emotion = 1; global num_emotion;
+emotion_dim = strcat([num2str(num_emotion), 'd']); global emotion_dim;
 model_type = 'lstm'; global model_type;
 dataset_name = 'lindsey'; global dataset_name;
 tsne_marker_size = 1;
 plot_in_out_seq2seq_output = 0;
+
+%Only relevant to ANFIS
+nummfs = 2*num_emotion; global nummfs; % number of membership functions. [2DMOS: 4, 1DMOS: 2].
+mftype = 'gbellmf'; global mftype; % membership functions type is generalized bell
+numepochs = 4000; global numepochs;
 
 % Only relevant for LSTM
 maxEpochs = 150; global maxEpochs;
@@ -30,7 +36,7 @@ model_seq2seq_save_path = strcat([root_save, 'model_', model_type, '/']); global
 results_path = strcat(['results/', dataset_name, '/', model_type, '_', emotion_dim, 'mos/']); global results_path;
 
 %% Load data
-if strcmp(emotion_dim, '2d')
+if num_emotion == 2
     run load_2DMOS_data
 else
     run load_1DMOS_data
