@@ -4,7 +4,7 @@
 
 clc; clear all;
 %% Settings
-emotion_dim = '2d'; global emotion_dim;
+emotion_dim = '1d'; global emotion_dim;
 model_type = 'lstm'; global model_type;
 dataset_name = 'lindsey'; global dataset_name;
 tsne_marker_size = 1;
@@ -32,4 +32,6 @@ results_path = strcat(['results/', dataset_name, '/', model_type, '_', emotion_d
 %% Load data
 if strcmp(emotion_dim, '2d')
     run load_2DMOS_data
+else
+    run load_1DMOS_data
 end
