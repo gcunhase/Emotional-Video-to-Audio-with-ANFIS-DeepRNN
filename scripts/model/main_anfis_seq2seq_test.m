@@ -9,14 +9,20 @@
 
 %% Test with 'test dataset'
 % Load data
-%video_id = 1;  % Roundtable
-%video_id = 2; % Beyond the veil
-%video_id = 3; % Phantom of the Opera
-%video_id = 4; % Take Flight
-%video_id = 5; % Crystallize
-%video_id = 6; % Moon Trance
-%video_id = 7; % LOTR Medley
-video_id = 8; % Elements
+if strcmp(dataset_name, 'lindsey')
+    data_path = 'lindsey stirling dataset';
+    video_id = 1; % Roundtable
+    %video_id = 2; % Beyond the veil
+    %video_id = 3; % Phantom of the Opera
+    %video_id = 4; % Take Flight
+    %video_id = 5; % Crystallize
+    %video_id = 6; % Moon Trance
+    %video_id = 7; % LOTR Medley
+    %video_id = 8; % Elements
+else  % deap
+    data_path = 'deap dataset';
+    video_id = 5;  % range: 1 to 10
+end
 
 TLR_database = output_TLR;
 audio_database = output_audio_equivalent;
@@ -32,7 +38,7 @@ audio_filename = strcat([results_path, 'testVideo_fuzzy_', model_type, '_', emot
 [out_final, final_audio_reshaped, audio_filename, predicted_audio_filename] = eval_anfis_seq2seq_model(Xin_HSL_test, Xout_HSL_test, output_TLR, output_audio_equivalent, audio_filename);
 
 % Target/expected audio
-[y, fs] = audioread(strcat(['dataset/lindsey stirling dataset/test dataset/', num2str(video_id), '.mp4']));
+[y, fs] = audioread(strcat(['dataset/', data_path, '/test dataset/', num2str(video_id), '.mp4']));
 y = y(:,1);
 audio_filename_expected = strcat([audio_filename, '_expected.wav']);
 audiowrite(audio_filename_expected, y, fs);
@@ -49,6 +55,7 @@ disp(strcat(['Test video ', num2str(video_id), ' from the ', dataset_name, ' dat
 
 
 %% Test with train data - NOT NECESSARY
+% THIS SUBSECTION IS ONLY FOR THE LINDSEY DATASET
 
 %n1 = 100; n2 = 110; %mae = 0.164617559909981
 %n1 = 240; n2 = 250; %mae = 0.285375937261687
