@@ -8,8 +8,8 @@ csv_filename = strcat(['results/', dataset_name, '/mturk-1DMOS-ABexperiment.csv'
 values = mturk_csv_read(csv_filename);
 
 % 2D: max 22, shape 22x8
-% 1D: max 19
-num_subjects = 19;
+% 1D: max 20
+num_subjects = 20;
 values = values(1:num_subjects, :);
 
 % Values caption = A: 0, B: 1, Either: 2
