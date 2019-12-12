@@ -78,6 +78,7 @@ Toolboxes: Fuzzy Logic, Deep Learning
         scripts/model/main_anfis_seq2seq_test.m
         ```
 
+5. Evaluation of MTurk results in `scripts/eval_mturk`
 
 ## Notes
 * [LSTM for Matlab](https://www.mathworks.com/help/deeplearning/ug/long-short-term-memory-networks.html), https://kr.mathworks.com/help/nnet/ref/nnet.cnn.layer.lstmlayer.html
