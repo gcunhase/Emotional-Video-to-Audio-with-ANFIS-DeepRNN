@@ -1,13 +1,21 @@
 %Gwena Cunha
 % April 14th 2016
 % Also return equivalent audio
+% Can be used for both DEAP and Lindsey
 
 function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_full ] = getIO_HSL_TLR_equivAudio_2DMOS_test( plot, visual_feat_path_test, sound_feat_path_test )
     
+    global dataset_name;
+    
     format long;
     % root_save = 'saved_mats/lindsey/';
-    load(strcat([visual_feat_path_test, 'number_of_sort_dataset_lindsey_test_240_v7'])); %% random���� selection �� ����
-    load(strcat([sound_feat_path_test, 'sound_features_dataset2_lindsey_test_size10_v7_raw']));
+    if strcmp(dataset_name, 'lindsey')
+        load(strcat([visual_feat_path_test, 'number_of_sort_dataset_lindsey_test_240_v7'])); %% random���� selection �� ����
+        load(strcat([sound_feat_path_test, 'sound_features_dataset2_lindsey_test_size10_v7_raw']));
+    else  % deap
+        load(strcat([visual_feat_path_test, 'number_of_sort_dataset_deap_test_10_v7'])); %% random���� selection �� ����
+        load(strcat([sound_feat_path_test, 'sound_features_dataset2_deap_test_size10_v7_raw']));
+    end
     
     %% Output
     output_full = [];
@@ -79,7 +87,12 @@ function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_fu
     output_TLR = 0 + (1-0)*(output_TLR-a)/(b-a);
     
     %% Input
-    load(strcat([visual_feat_path_test, 'feature_dataset_lindsey_test_240_v7']));        %% feature 
+    if strcmp(dataset_name, 'lindsey')
+        load(strcat([visual_feat_path_test, 'feature_dataset_lindsey_test_240_v7']));        %% feature 
+    else  % deap
+        load(strcat([visual_feat_path_test, 'feature_dataset_deap_test_10_v7']));        %% feature 
+    end
+    
     input_full = [];
     for i=1:size(Feature_train,3)
         input_full = [input_full, Feature_train(:,1:feats_per_song(num_sort(i)),num_sort(i))];

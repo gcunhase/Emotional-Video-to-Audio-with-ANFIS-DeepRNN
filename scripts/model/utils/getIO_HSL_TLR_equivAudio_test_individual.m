@@ -8,8 +8,13 @@ function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_fu
     
     format long;
     % root_save = 'saved_mats/lindsey/';
-    load(strcat([visual_feat_path_test, 'number_of_sort_dataset2_test_', dataset_name, '_video', num2str(video_id), '_v7'])); %% random���� selection �� ����
-    load(strcat([sound_feat_path_test, 'sound_features_dataset2_', dataset_name, '_testAll_video', num2str(video_id), '_size10_v7_raw']));
+    if strcmp(dataset_name, 'lindsey')
+        load(strcat([visual_feat_path_test, 'number_of_sort_dataset2_test_lindsey_video', num2str(video_id), '_v7'])); %% random���� selection �� ����
+        load(strcat([sound_feat_path_test, 'sound_features_dataset2_lindsey_testAll_video', num2str(video_id), '_size10_v7_raw']));
+    else  % deap
+        load(strcat([visual_feat_path_test, 'number_of_sort_dataset_deap_test_video', num2str(video_id), '_v7'])); %% random���� selection �� ����
+        load(strcat([sound_feat_path_test, 'sound_features_deap_test_video', num2str(video_id), '_size10_v7_raw']));
+    end
     
     %% Output
     output_full = [];
@@ -81,7 +86,12 @@ function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_fu
     output_TLR = 0 + (1-0)*(output_TLR-a)/(b-a);
     
     %% Input
-    load(strcat([visual_feat_path_test, 'feature_dataset2_test_', dataset_name, '_video', num2str(video_id), '_v7']));        %% feature 
+    if strcmp(dataset_name, 'lindsey')
+        load(strcat([visual_feat_path_test, 'feature_dataset2_test_lindsey_video', num2str(video_id), '_v7']));        %% feature 
+    else  % deap
+        load(strcat([visual_feat_path_test, 'feature_dataset_deap_test_10_video', num2str(video_id), '_v7']));        %% feature 
+    end
+    
     input_full = [];
     for i=1:size(Feature_train,3)
         input_full = [input_full, Feature_train(:,1:feats_per_song(num_sort(i)),num_sort(i))];

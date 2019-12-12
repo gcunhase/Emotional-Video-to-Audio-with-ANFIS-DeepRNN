@@ -7,7 +7,7 @@ clc; clear all;
 num_emotion = 1; global num_emotion;
 emotion_dim = strcat([num2str(num_emotion), 'd']); global emotion_dim;
 model_type = 'rnn'; global model_type;
-dataset_name = 'lindsey'; global dataset_name;
+dataset_name = 'deap'; global dataset_name;  % Options = lindsey, deap
 tsne_marker_size = 1;
 plot_in_out_seq2seq_output = 0;
 
