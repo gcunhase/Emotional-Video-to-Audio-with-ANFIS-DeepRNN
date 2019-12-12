@@ -12,7 +12,7 @@ function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_fu
         load(strcat([visual_feat_path_test, 'number_of_sort_dataset2_test_lindsey_video', num2str(video_id), '_v7'])); %% random���� selection �� ����
         load(strcat([sound_feat_path_test, 'sound_features_dataset2_lindsey_testAll_video', num2str(video_id), '_size10_v7_raw']));
     else  % deap
-        load(strcat([visual_feat_path_test, 'number_of_sort_dataset_deap_test_video', num2str(video_id), '_v7'])); %% random���� selection �� ����
+        load(strcat([visual_feat_path_test, 'number_of_sort_dataset_deap_test_10_video', num2str(video_id), '_v7'])); %% random���� selection �� ����
         load(strcat([sound_feat_path_test, 'sound_features_deap_test_video', num2str(video_id), '_size10_v7_raw']));
     end
     
