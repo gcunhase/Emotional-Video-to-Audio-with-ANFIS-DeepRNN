@@ -15,7 +15,7 @@ G2 = createGabor(orientationsPerScale, imageSize);
 %%Convert all to mpg from now on
 file_name_raw_pos = {};
 movie_id = {};
-video_id = 8;
+video_id = 10;
 for i=video_id:video_id
     movie_id{end+1} = i;
     file_name_raw_pos{end+1} = strcat(['dataset/deap dataset/test dataset/', num2str(i), '.mp4']);
