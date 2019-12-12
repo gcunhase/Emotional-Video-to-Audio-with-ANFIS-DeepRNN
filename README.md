@@ -15,10 +15,13 @@ Toolboxes: Fuzzy Logic, Deep Learning
 * Video format: `mp4`
 * Emotion labels:
     * MOS: 2D-axis (Valence and Arousal)
-    * file: `dataset/Target - 2D emotion scores.tsv`
+    * file: `dataset/lindsey stirling dataset/Target - 2D emotion scores.tsv`
 
 ### DEAP
-
+* 38 music videos
+* Emotion labels:
+    * MOS: 2D-axis
+    * file: `dataset/deap dataset/participant_ratings.csv`
 
 ## Model
 * Extract audio and visual features
@@ -34,8 +37,14 @@ Toolboxes: Fuzzy Logic, Deep Learning
 1. Download datasets
 
 2. Extract audio and visual features
-    * Extract sound features: ```scripts/emotion_from_sound/main_sound2feat_lindsey.m```
-    * Extract visual features: ```scripts/emotion_from_visual/.m```
+    * Extract sound features:
+        ```
+        scripts/emotion_from_sound/main_sound2feat_lindsey.m
+        ```
+    * Extract visual features:
+        ```
+        scripts/emotion_from_visual/main_video2feat_lindsey.m
+        ```
 
 3. Train:
     * Settings and Load data:
@@ -50,12 +59,29 @@ Toolboxes: Fuzzy Logic, Deep Learning
         ```
         scripts/model/main_seq2seq_train.m
         ```
-        > Options = [`rnn`, `lstm`]
-
-	> [LSTM for Matlab](https://www.mathworks.com/help/deeplearning/ug/long-short-term-memory-networks.html), https://kr.mathworks.com/help/nnet/ref/nnet.cnn.layer.lstmlayer.html
-
 
 4. Evaluation (music generation from visual features)
+    * Extract sound features (test data):
+        ```
+        scripts/emotion_from_sound/main_sound2feat_lindsey_test_individual.m
+        ```
+    * Extract visual features (test data):
+        ```
+        scripts/emotion_from_visual/main_video2feat_lindsey_test_individual.m
+        ```
+    * Settings and Load data:
+        ```
+        scripts/model/main_settings.m
+        ```
+    * Eval
+        ```
+        scripts/model/main_anfis_seq2seq_test.m
+        ```
+
+
+## Notes
+* [LSTM for Matlab](https://www.mathworks.com/help/deeplearning/ug/long-short-term-memory-networks.html), https://kr.mathworks.com/help/nnet/ref/nnet.cnn.layer.lstmlayer.html
+
 
 ## Acknowledgement
 In case you wish to use this code, please use the following citation:
