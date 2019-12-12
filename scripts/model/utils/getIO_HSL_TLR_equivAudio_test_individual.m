@@ -2,12 +2,14 @@
 % April 14th 2016
 % Also return equivalent audio
 
-function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_full ] = getIO_HSL_TLR_equivAudio_2DMOS_test_individual( visual_feat_path_test, sound_feat_path_test, video_id )
+function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_full ] = getIO_HSL_TLR_equivAudio_test_individual( visual_feat_path_test, sound_feat_path_test, video_id )
+    
+    global dataset_name;
     
     format long;
     % root_save = 'saved_mats/lindsey/';
-    load(strcat([visual_feat_path_test, 'number_of_sort_dataset2_test_lindsey_video', num2str(video_id), '_v7'])); %% random���� selection �� ����
-    load(strcat([sound_feat_path_test, 'sound_features_dataset2_lindsey_testAll_video', num2str(video_id), '_size10_v7_raw']));
+    load(strcat([visual_feat_path_test, 'number_of_sort_dataset2_test_', dataset_name, '_video', num2str(video_id), '_v7'])); %% random���� selection �� ����
+    load(strcat([sound_feat_path_test, 'sound_features_dataset2_', dataset_name, '_testAll_video', num2str(video_id), '_size10_v7_raw']));
     
     %% Output
     output_full = [];
@@ -79,7 +81,7 @@ function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_fu
     output_TLR = 0 + (1-0)*(output_TLR-a)/(b-a);
     
     %% Input
-    load(strcat([visual_feat_path_test, 'feature_dataset2_test_lindsey_video', num2str(video_id), '_v7']));        %% feature 
+    load(strcat([visual_feat_path_test, 'feature_dataset2_test_', dataset_name, '_video', num2str(video_id), '_v7']));        %% feature 
     input_full = [];
     for i=1:size(Feature_train,3)
         input_full = [input_full, Feature_train(:,1:feats_per_song(num_sort(i)),num_sort(i))];

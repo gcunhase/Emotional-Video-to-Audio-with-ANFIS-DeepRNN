@@ -9,25 +9,27 @@
 
 %% Test with 'test dataset'
 % Load data
-video_id = 1;  % Roundtable
+%video_id = 1;  % Roundtable
 %video_id = 2; % Beyond the veil
 %video_id = 3; % Phantom of the Opera
 %video_id = 4; % Take Flight
 %video_id = 5; % Crystallize
 %video_id = 6; % Moon Trance
 %video_id = 7; % LOTR Medley
-%video_id = 8; % Elements
+video_id = 8; % Elements
 
 TLR_database = output_TLR;
 audio_database = output_audio_equivalent;
 sound_feat_path_test_individual = strcat([root_sound_feat_path, 'test_individual/']);
 visual_feat_path_test_individual = strcat([root_visual_feat_path, 'test_individual/']);
-[ input_HSL_test, output_TLR_test, ~, input_full_test, output_full_test ] = getIO_HSL_TLR_equivAudio_2DMOS_test_individual( visual_feat_path_test_individual, sound_feat_path_test_individual, video_id );
+
+% getIO_HSL_TLR_equivAudio_2DMOS -> same for 1DMOS, change name
+[ input_HSL_test, output_TLR_test, ~, input_full_test, output_full_test ] = getIO_HSL_TLR_equivAudio_test_individual( visual_feat_path_test_individual, sound_feat_path_test_individual, video_id );
 
 Xin_HSL_test = input_HSL_test'; 
 Xout_HSL_test = output_TLR_test'; 
 audio_filename = strcat([results_path, 'testVideo_fuzzy_', model_type, '_', emotion_dim, 'mos_video', num2str(video_id)]);  % filename = 'testVideo_fuzzy_rnn_2dmos_trainData';
-[out_final, final_audio_reshaped, audio_filename, predicted_audio_filename] = eval_anfis_seq2seq_2DMOS_model(Xin_HSL_test, Xout_HSL_test, output_TLR, output_audio_equivalent, audio_filename);
+[out_final, final_audio_reshaped, audio_filename, predicted_audio_filename] = eval_anfis_seq2seq_model(Xin_HSL_test, Xout_HSL_test, output_TLR, output_audio_equivalent, audio_filename);
 
 % Target/expected audio
 [y, fs] = audioread(strcat(['dataset/lindsey stirling dataset/test dataset/', num2str(video_id), '.mp4']));
