@@ -9,6 +9,8 @@ Xout_HSL = input_mos_num';
 %Start the optimization - ANFIS
 % 2DMOS HSL: epochs 4000, perf 73.644859813084111
 % 1DMOS HSL: epochs 4000, perf 89.968847352024923
+% 1DMOS HSL - DEAP: epochs 4000, perf ??
+% 2DMOS HSL - DEAP: epochs 4000, perf 47.842105263157897
 
 %%-------- Anfis - Image (HSL) - SAVE ---------
 [out_fis_train_HSL, trnerr_HSL, ss_HSL, fismat2_HSL, chkerr_HSL] = train_anfis_model(Xin_HSL, Xout_HSL, data_type, 1);

@@ -7,6 +7,8 @@ Emotional Music Generation with ANFIS-LSTM
 ## Requirements
 Matlab 2017, Mac OS
 
+Toolboxes: Fuzzy Logic, Deep Learning
+
 ## Dataset
 ### Lindsey Stirling Dataset
 * 8 music videos
@@ -36,17 +38,17 @@ Matlab 2017, Mac OS
     * Extract visual features: ```scripts/emotion_from_visual/.m```
 
 3. Train:
-    * Settings:
+    * Settings and Load data:
         ```
         scripts/model/main_settings.m
         ```
     * ANFIS for emotion classification from HSL (visual features):
         ```
-        scripts/model/main_2DMOS_anfis.m
+        scripts/model/main_anfis.m
         ```
     * Seq2Seq for domain transformation from visual to audio features:
         ```
-        scripts/model/main_2DMOS_seq2seq.m
+        scripts/model/main_seq2seq_train.m
         ```
         > Options = [`rnn`, `lstm`]
 
@@ -56,3 +58,10 @@ Matlab 2017, Mac OS
 4. Evaluation (music generation from visual features)
 
 ## Acknowledgement
+In case you wish to use this code, please use the following citation:
+
+
+
+Contact: `gwena.cs@gmail.com`
+
+

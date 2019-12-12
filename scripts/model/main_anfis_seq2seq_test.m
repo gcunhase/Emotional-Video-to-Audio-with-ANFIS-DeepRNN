@@ -21,7 +21,7 @@ if strcmp(dataset_name, 'lindsey')
     %video_id = 8; % Elements
 else  % deap
     data_path = 'deap dataset';
-    video_id = 5;  % range: 1 to 10
+    video_id = 10;  % range: 1 to 10
 end
 
 TLR_database = output_TLR;
@@ -42,11 +42,15 @@ audio_filename = strcat([results_path, 'testVideo_fuzzy_', model_type, '_', emot
 y = y(:,1);
 audio_filename_expected = strcat([audio_filename, '_expected.wav']);
 audiowrite(audio_filename_expected, y, fs);
-figure('Name', strcat(['Expected audio - video ', num2str(video_id)])), specgram(y, 512, fs, kaiser(500,5), 475);
+fig = figure('Name', strcat(['Expected audio - video ', num2str(video_id)]));
+specgram(y, 512, fs, kaiser(500,5), 475);
+% saveas(fig, strcat([results_path, 'spectrograms/video', num2str(video_id), '_expected.eps']));
 
 % Comparison between expected and predicted audios
 [y1, fs] = audioread(strcat([predicted_audio_filename, '_sim_framed.wav']));  % 'sim_framed_testVideo_fuzzy_rnn_2dmos_trainData.wav');
-figure('Name', strcat(['Predicted audio - video ', num2str(video_id)])), specgram(y1, 512, fs, kaiser(500,5), 475);
+fig = figure('Name', strcat(['Predicted audio - video ', num2str(video_id)]));
+specgram(y1, 512, fs, kaiser(500,5), 475);
+% saveas(fig, strcat([results_path, 'spectrograms/video', num2str(video_id), '_predicted.png']));
 
 m = min(length(y1), length(y));
 mae_val = mae(y1(1:m)-y(1:m));
