@@ -2,7 +2,7 @@
 % April 14th 2016
 % Also return equivalent audio
 
-function [ input_HSL, output_TLR, output_audio_equivalent, input_mos, output_mos, input_mos_num, output_mos_num, input_full, output_full ] = getIO_HSL_TLR_equivAudio_2DMOS_deap( visual_feat_path, sound_feat_path, filename )
+function [ input_HSL, output_TLR, output_audio_equivalent, input_mos, output_mos, input_mos_num, output_mos_num, input_full, output_full, mos_values_valence, mos_values_arousal, std_values_valence, std_values_arousal ] = getIO_HSL_TLR_equivAudio_2DMOS_deap( visual_feat_path, sound_feat_path, filename )
     
     format long;
     load(strcat([visual_feat_path, 'number_of_sort_dataset_deap_125_v7'])); %% random���� selection �� ����
@@ -48,6 +48,8 @@ function [ input_HSL, output_TLR, output_audio_equivalent, input_mos, output_mos
     
     mos_values_valence = mean(values_valence);
     mos_values_arousal = mean(values_arousal);
+    std_values_valence = std(values_valence);
+    std_values_arousal = std(values_arousal);
     
     % Valence and arousal should be either 0 or 1
     nn_2dmos = [];

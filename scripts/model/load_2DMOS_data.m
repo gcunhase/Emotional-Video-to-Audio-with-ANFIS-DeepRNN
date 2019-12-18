@@ -6,7 +6,7 @@ plot_bool = 0;
 if strcmp(dataset_name, 'lindsey')
     [input_HSL, output_TLR, output_audio_equivalent, input_mos, output_mos, input_mos_num, output_mos_num, input_full, output_full] = getIO_HSL_TLR_equivAudio_2DMOS(plot_bool, visual_feat_path, sound_feat_path);
 else  % deap
-    [input_HSL, output_TLR, output_audio_equivalent, input_mos, output_mos, input_mos_num, output_mos_num, input_full, output_full] = getIO_HSL_TLR_equivAudio_2DMOS_deap(visual_feat_path, sound_feat_path);
+    [input_HSL, output_TLR, output_audio_equivalent, input_mos, output_mos, input_mos_num, output_mos_num, input_full, output_full, mos_values_valence, mos_values_arousal, std_values_valence, std_values_arousal] = getIO_HSL_TLR_equivAudio_2DMOS_deap(visual_feat_path, sound_feat_path);
 end
 
 %% 2. Check how many video excerpts in each class (used in ANFIS and Seq2Seq)

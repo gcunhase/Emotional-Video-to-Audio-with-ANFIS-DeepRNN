@@ -1,6 +1,7 @@
 .DS_Store
 dataset/*
 results/*
+!results/*/mturk*.csv
 saved_mats/*/features*
 *._*
 *.m~
