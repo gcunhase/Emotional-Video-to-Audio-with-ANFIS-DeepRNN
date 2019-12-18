@@ -12,7 +12,7 @@ Toolboxes: Fuzzy Logic, Deep Learning
 ## Dataset
 Both datasets have emotion label in the 2D-axis (Valence and Arousal)
 
-#### Lindsey Stirling Dataset
+#### [Lindsey Stirling Dataset](https://www.youtube.com/playlist?list=PLg5IYs6I5_xPkTWQ6P_YOiTTh7IBlc7ZH)
 * 8 music videos
 * Emotion labels: `dataset/lindsey stirling dataset/Target - 2D emotion scores.tsv`
 
