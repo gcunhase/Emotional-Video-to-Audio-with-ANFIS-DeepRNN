@@ -1,7 +1,13 @@
 .DS_Store
-dataset/*
-results/*
-!results/*/mturk*.csv
-saved_mats/*/features*
 *._*
 *.m~
+
+# Dataset
+dataset/*
+!dataset/lindsey*/*.tsv
+!dataset/deap*/participant_ratings.csv
+
+# Results
+results/*/*_*
+!results/*/mturk*.csv
+saved_mats/*/features*
