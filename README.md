@@ -78,7 +78,7 @@ Both datasets have emotion label in the 2D-axis (Valence and Arousal)
 5. Evaluation of MTurk results in `scripts/eval_mturk`
 
 ## Notes
-* Not included due to large size: generated music, video and audio data, and data mats
+* Not included due to large size: generated music, video and audio data, and data mats.
 * [LSTM for Matlab](https://www.mathworks.com/help/deeplearning/ug/long-short-term-memory-networks.html), https://kr.mathworks.com/help/nnet/ref/nnet.cnn.layer.lstmlayer.html
 
 

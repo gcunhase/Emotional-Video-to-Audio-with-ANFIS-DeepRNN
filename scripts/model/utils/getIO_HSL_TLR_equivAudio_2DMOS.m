@@ -27,7 +27,7 @@ function [ input_HSL, output_TLR, output_audio_equivalent, input_mos, output_mos
     %% Output considering MOS from 5 Lab Members
     %1=positive, -1=negative
     if (nargin < 4)
-        filename = 'dataset/lindsey stirling dataset/2D (Valence and Arousal) - ICONIP_MOS_Test - Spring ''16 (Responses) - Form Responses 1.tsv';
+        filename = 'dataset/lindsey stirling dataset/user_response_iconip16.tsv';
     end
     values = tsvreadGoogleForm(filename);
     mos_values = mean(values,2);
