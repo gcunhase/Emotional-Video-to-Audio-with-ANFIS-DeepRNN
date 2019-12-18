@@ -3,9 +3,13 @@
 *.m~
 
 # Dataset
-dataset/*
-!dataset/lindsey*/*.tsv
-!dataset/deap*/participant_ratings.csv
+dataset/deap*/mp4
+dataset/deap*/test*
+dataset/deap*/wmv
+
+dataset/lindsey*/audio
+dataset/lindsey*/test*
+dataset/lindsey*/video
 
 # Results
 results/*/*_*
