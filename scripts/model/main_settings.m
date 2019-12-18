@@ -4,15 +4,15 @@
 
 clc; clear all;
 %% Settings
-num_emotion = 2; global num_emotion;
+num_emotion = 2; global num_emotion;  % Tested with 1 and 2
 emotion_dim = strcat([num2str(num_emotion), 'd']); global emotion_dim;
-model_type = 'lstm'; global model_type;
+model_type = 'lstm'; global model_type;  % Options = rnn, lstm
 dataset_name = 'deap'; global dataset_name;  % Options = lindsey, deap
 tsne_marker_size = 1;
 plot_in_out_seq2seq_output = 0;
 
 % Only relevant to ANFIS
-nummfs = 2*num_emotion; global nummfs; % number of membership functions. [2DMOS: 4, 1DMOS: 2].
+nummfs = 2*num_emotion; global nummfs; % number of membership functions: two times the number of emotions. [2DMOS: 4, 1DMOS: 2].
 mftype = 'gbellmf'; global mftype; % membership functions type is generalized bell
 numepochs = 4000; global numepochs;
 
