@@ -10,18 +10,15 @@ Matlab 2017, Mac OS
 Toolboxes: Fuzzy Logic, Deep Learning
 
 ## Dataset
-### Lindsey Stirling Dataset
-* 8 music videos
-* Video format: `mp4`
-* Emotion labels:
-    * MOS: 2D-axis (Valence and Arousal)
-    * file: `dataset/lindsey stirling dataset/Target - 2D emotion scores.tsv`
+Both datasets have emotion label in the 2D-axis (Valence and Arousal)
 
-### DEAP
+#### Lindsey Stirling Dataset
+* 8 music videos
+* Emotion labels: `dataset/lindsey stirling dataset/Target - 2D emotion scores.tsv`
+
+#### [DEAP](https://www.eecs.qmul.ac.uk/mmv/datasets/deap/)
 * 38 music videos
-* Emotion labels:
-    * MOS: 2D-axis
-    * file: `dataset/deap dataset/participant_ratings.csv`
+* Emotion labels: `dataset/deap dataset/participant_ratings.csv`
 
 ## Model
 * Extract audio and visual features
@@ -29,7 +26,7 @@ Toolboxes: Fuzzy Logic, Deep Learning
 * Seq2Seq for audio feature generation (multi-modal domain transformation)
 * Mapping of audio features to audio snippets for music generation
 
-### How to Use
+## How to Use
 > All the codes are for the first dataset (Lindsey). The codes corresponding to the DEAP are also available.
 
 0. Change current folder to where this file is located
