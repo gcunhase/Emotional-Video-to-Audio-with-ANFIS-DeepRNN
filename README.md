@@ -1,5 +1,5 @@
 ## About
-Emotional Music Generation with ANFIS-LSTM
+Repository for paper titled ["Emotional Video to Audio Transformation Using Deep Recurrent Neural Network and Neuro-Fuzzy System"]().
 
 ### Contents
 [Requirements](#requirements) • [Dataset](#dataset) • [How to Use](#how-to-use) • [How to Cite](#acknowledgement) 
@@ -14,7 +14,7 @@ Both datasets have emotion label in the 2D-axis (Valence and Arousal)
 
 #### [Lindsey Stirling Dataset](https://www.youtube.com/playlist?list=PLg5IYs6I5_xPkTWQ6P_YOiTTh7IBlc7ZH)
 * 8 music videos
-* Emotion labels: `dataset/lindsey stirling dataset/Target - 2D emotion scores.tsv`
+* Emotion labels: `dataset/lindsey stirling dataset/user_response*.tsv`
 
 #### [DEAP](https://www.eecs.qmul.ac.uk/mmv/datasets/deap/)
 * 38 music videos
@@ -27,7 +27,7 @@ Both datasets have emotion label in the 2D-axis (Valence and Arousal)
 * Mapping of audio features to audio snippets for music generation
 
 ## How to Use
-> All the codes are for the first dataset (Lindsey). The codes corresponding to the DEAP are also available.
+> All the codes are for the Lindsey Stirling Dataset. The codes corresponding to the DEAP Dataset are also available.
 
 0. Change current folder to where this file is located
 
