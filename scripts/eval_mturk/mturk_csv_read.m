@@ -3,7 +3,6 @@
 %
 % Author: Gwenaelle Cunha Sergio
 % Kyungpook National University, Deagu, South Korea
-% Date: Spring 2015
 %
 
 function [values] = mturk_csv_read(filename)

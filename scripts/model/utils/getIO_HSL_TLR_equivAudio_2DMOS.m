@@ -1,6 +1,7 @@
-%Gwena Cunha
-% April 14th 2016
-% Also return equivalent audio
+%%Also return equivalent audio
+%
+% Gwena Cunha
+%
 
 function [ input_HSL, output_TLR, output_audio_equivalent, input_mos, output_mos, input_mos_num, output_mos_num, input_full, output_full ] = getIO_HSL_TLR_equivAudio_2DMOS( plot, visual_feat_path, sound_feat_path, filename )
     

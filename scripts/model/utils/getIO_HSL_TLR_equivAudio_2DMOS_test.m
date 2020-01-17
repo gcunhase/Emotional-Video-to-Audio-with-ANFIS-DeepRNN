@@ -1,7 +1,7 @@
-%Gwena Cunha
-% April 14th 2016
-% Also return equivalent audio
-% Can be used for both DEAP and Lindsey
+%%Also return equivalent audio. Can be used for both DEAP and Lindsey.
+%
+% Gwena Cunha
+%
 
 function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_full ] = getIO_HSL_TLR_equivAudio_2DMOS_test( plot, visual_feat_path_test, sound_feat_path_test )
     

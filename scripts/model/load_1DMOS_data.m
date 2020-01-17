@@ -1,5 +1,8 @@
-%Gwena Cunha
-% Added Deep Network on Decmber 11th 2019
+%
+% Loads data with 1D emotion score
+%
+% Gwena Cunha
+%
 
 %% 1. Obtain dataset
 plot_bool = 0;

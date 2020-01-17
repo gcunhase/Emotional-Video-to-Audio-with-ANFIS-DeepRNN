@@ -1,7 +1,6 @@
 %%Function to read data obtained from Google Form to obtain MOS - DEAP
 % Author: Gwenaelle Cunha Sergio
 % Kyungpook National University, Deagu, South Korea
-% Date: Dec 12th 2019
 %
 %filename: 2D (Valence and Arousal) - ICONIP_MOS_Test - Spring '16 (Responses) - Form Responses
 %Variables

@@ -9,14 +9,13 @@ function g = Orientation(src_data,G)
     
     % Data set
     data_size = size(src_data);
-    %%----Begin: Gwena's modification-----
+    
     s = 1;
     if (length(data_size) == 4)
         s = data_size(4);
     end
     
     for i=1:s
-    %%----End: Gwena's modification-----
         O_data(:,:,i) = rgb2gray(src_data(:,:,:,i));
     end
     

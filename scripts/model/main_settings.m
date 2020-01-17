@@ -1,6 +1,8 @@
-%Gwena Cunha
+%
 % Scripts with settings: used by main_2DMOS_anfis.m and main_2DMOS_seq2seq.m
-% Added on December 9th 2019
+% 
+% Gwena Cunha
+% 
 
 clc; clear all;
 %% Settings

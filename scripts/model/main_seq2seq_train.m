@@ -1,7 +1,7 @@
-%Gwena Cunha
-% Added Deep Network on November 13th 2017
 %
 % TRAIN Domain transformation: modeling HSL visual features into TLR sound features
+%
+% Gwena Cunha
 %
 
 for key = keys(input_HSL_dict)

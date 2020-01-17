@@ -1,5 +1,8 @@
-%Gwena Cunha
-% Code for ANFIS separated from full code on December 9th 2019
+%
+% Code for ANFIS separated from full code
+%
+% Gwena Cunha
+%
 
 %% Anfis - Image (HSL) - load variables
 data_type = 'HSL';

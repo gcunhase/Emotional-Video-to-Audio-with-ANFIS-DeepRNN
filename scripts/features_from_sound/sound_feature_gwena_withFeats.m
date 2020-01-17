@@ -1,4 +1,4 @@
-%%Cutting the data to deal with codes easily
+%%Cuts the data to deal with codes easily
 
 function [tempo, loudness, rhythm] = sound_feature_gwena_withFeats(song, sec)
     

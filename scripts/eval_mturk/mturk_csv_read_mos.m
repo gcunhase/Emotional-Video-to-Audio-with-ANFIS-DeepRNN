@@ -3,7 +3,6 @@
 %
 % Author: Gwenaelle Cunha Sergio
 % Kyungpook National University, Deagu, South Korea
-% Date: Spring 2015
 %
 
 function [valence, arousal] = mturk_csv_read_mos(filename, num_emotion)

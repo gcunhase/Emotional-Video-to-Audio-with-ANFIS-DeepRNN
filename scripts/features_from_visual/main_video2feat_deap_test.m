@@ -1,3 +1,8 @@
+%%Main file to obtain visual features from scene in DEAP Test
+%
+% Gwena Cunha
+%
+
 clc; clear all;
 
 H_data2 = cell(1,2);S_data2 = cell(1,2);L_data2 = cell(1,2);O_data2 = cell(1,2);

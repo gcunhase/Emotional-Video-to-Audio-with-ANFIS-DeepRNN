@@ -1,10 +1,10 @@
-%Gwena Cunha
-% All extension of the audio is used, not just the min
-% Jan 9th 2016
+%%All extension of the audio is used, not just the min
+%
+% Gwena Cunha
+%
 
 clear all
 clc
-%addpath ../Emotion Datasets - Sep 15/Media/audio
 
 %% Audio filename
 % Choose the files to extract the features from

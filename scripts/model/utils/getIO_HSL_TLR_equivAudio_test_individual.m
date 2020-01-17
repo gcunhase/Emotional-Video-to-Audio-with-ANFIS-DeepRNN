@@ -1,6 +1,7 @@
-%Gwena Cunha
-% April 14th 2016
-% Also return equivalent audio
+%%Also return equivalent audio
+%
+% Gwena Cunha
+%
 
 function [ input_HSL, output_TLR, output_audio_equivalent, input_full, output_full ] = getIO_HSL_TLR_equivAudio_test_individual( visual_feat_path_test, sound_feat_path_test, video_id )
     

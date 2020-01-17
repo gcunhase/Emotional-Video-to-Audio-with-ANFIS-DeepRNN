@@ -1,7 +1,7 @@
 %%Script to evaluate MTurk results for AB Experiment
+%
 % Author: Gwenaelle Cunha Sergio
 % Kyungpook National University, Deagu, South Korea
-% Date: Dec 12th 2019
 %
 
 csv_filename = strcat(['results/', dataset_name, '/mturk-1DMOS-ABexperiment.csv']);

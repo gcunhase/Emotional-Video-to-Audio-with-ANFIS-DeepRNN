@@ -1,10 +1,10 @@
-%Gwena Cunha
-% Added Deep Network on November 13th 2017
 %
 % TEST Domain transformation: generate audio features from excerpt from training data
 % EVALUATION:
 %   Spectrogram figures
 %   MAE between expected and obtained audios
+%
+% Gwena Cunha
 %
 
 %% Test with 'test dataset'
