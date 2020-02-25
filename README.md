@@ -1,5 +1,5 @@
 ## About
-Repository for paper titled *"Emotional Video to Audio Transformation Using Deep Recurrent Neural Network and Neuro-Fuzzy System"*.
+Repository for paper titled *"Emotional Video to Audio Transformation Using Deep Recurrent Neural Networks and a Neuro-Fuzzy System"*.
 
 ### Contents
 [Requirements](#requirements) • [Dataset](#dataset) • [How to Use](#how-to-use) • [How to Cite](#acknowledgement) 
@@ -85,7 +85,17 @@ Both datasets have emotion label in the 2D-axis (Valence and Arousal)
 ## Acknowledgement
 In case you wish to use this code, please use the following citation:
 
-
+```
+@article{sergio2020mpe,
+   AUTHOR={{Sergio, G. C., and Lee, M.}},
+   TITLE={Emotional Video to Audio Transformation Using Deep Recurrent Neural Networks and a Neuro-Fuzzy System},
+   JOURNAL={Mathematical Problems in Engineering},
+   VOLUME={2020},
+   PAGES={1--15},
+   DOI={https://doi.org/10.1155/2020/8478527},
+   YEAR={2020}
+}
+```
 
 Contact: `gwena.cs@gmail.com`
 
