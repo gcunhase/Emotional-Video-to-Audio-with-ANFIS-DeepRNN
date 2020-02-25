@@ -1,5 +1,5 @@
 ## About
-Repository for paper titled *"Emotional Video to Audio Transformation Using Deep Recurrent Neural Networks and a Neuro-Fuzzy System"*.
+Repository for paper titled [*"Emotional Video to Audio Transformation Using Deep Recurrent Neural Networks and a Neuro-Fuzzy System"*](https://www.hindawi.com/journals/mpe/2020/8478527/).
 
 ### Contents
 [Requirements](#requirements) • [Dataset](#dataset) • [How to Use](#how-to-use) • [How to Cite](#acknowledgement) 
