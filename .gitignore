@@ -11,6 +11,8 @@ dataset/lindsey*/audio
 dataset/lindsey*/test*
 dataset/lindsey*/video
 
+dataset/cognimuse*
+
 # Results
 results/*/*_*
 !results/*/mturk*.csv
