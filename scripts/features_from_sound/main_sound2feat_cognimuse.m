@@ -14,6 +14,11 @@ clc
 % Choose the files to extract the features from
 root_dir='dataset/cognimuse dataset/';
 list_of_clip_names = {'BMI', 'CHI', 'FNE', 'GLA', 'LOR', 'CRA', 'DEP'};
+test_individual = true;  % true is test_individual. Otherwise, train/test.
+if test_individual
+    root_dir = strcat([root_dir, 'test_individual/']);
+    list_of_clip_names = {'CRA', 'DEP'};
+end
 list_of_clip_size = [];  % 625   602   605   600   750
 % Get numbers of videos in each clip
 for l=list_of_clip_names
@@ -33,7 +38,7 @@ for l=1:length(list_of_clip_size)
     movie_id = {};
     for i=0:clip_struct.size-1
         movie_id{end+1} = i;
-        file_name_raw_pos{end+1} = strcat(['dataset/cognimuse dataset/', clip_struct.name, '/audio_splices_3secs/', num2str(i), '.wav']);
+        file_name_raw_pos{end+1} = strcat([root_dir, clip_struct.name, '/audio_splices_3secs/', num2str(i), '.wav']);
     end
     clip_struct.movie_id = movie_id;
     clip_struct.file_names = file_name_raw_pos;
@@ -87,10 +92,17 @@ for l=1:length(clip_struct_all_expanded)
     movie_id = clip_struct.movie_id;
     raw_data = clip_struct.raw_data;
     
-    save_root = 'saved_mats/cognimuse/features_from_sound/train/';
-    if strcmp(clip_name, 'CRA') || strcmp(clip_name, 'DEP')  % test
-        save_root = 'saved_mats/cognimuse/features_from_sound/test/';
+    save_root = 'saved_mats/cognimuse/features_from_sound/';
+    if test_individual
+        save_root = strcat([save_root, 'test_individual/']);
+    else
+        if strcmp(clip_name, 'CRA') || strcmp(clip_name, 'DEP')  % test
+            save_root = strcat([save_root, 'test/']);
+        else
+            save_root = strcat([save_root, 'train/']);
+        end
     end
+    
     mkdir( save_root);
     
     save_to_filename = strcat([save_root, 'sound_features_dataset2_cognimuse_', clip_name, '_size', num2str(size_sound_feats), '_v7_raw']);
