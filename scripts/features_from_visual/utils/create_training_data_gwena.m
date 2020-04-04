@@ -1,6 +1,6 @@
 function [H_data,S_data,L_data,O_data,count] = create_training_data_gwena(data,G,H_data,S_data,L_data,O_data,NumMovie)
-    %%% train data Á¤¸®
-    addpath ./hsio;
+    %%% train data ï¿½ï¿½ï¿½ï¿½
+    %addpath hsio;
     %data = data(:,:,:,1:end);
     
     H_data_tmp = cell(1,2);S_data_tmp = cell(1,2);L_data_tmp = cell(1,2);O_data_tmp = cell(1,2);
