@@ -85,7 +85,7 @@ if is_save == true
        for i=1:clip_size
            vid = get_video_components_totalVideo(file_name_raw_pos{i}, n);
            vid_arr{end+1} = vid;
-           save_path_mat = strcat([save_path, 'videos_dataset_cognimuse_vid', num2str(i), '_', num2str(n), '.mat'])
+           save_path_mat = strcat([save_path, 'videos_dataset_cognimuse_vid', num2str(i-1), '_', num2str(n), '.mat'])
            save(save_path_mat, 'vid');
            clear vid;
        end
@@ -117,7 +117,7 @@ if is_load == true
 
        for i=1:clip_size
            i
-           load(strcat([save_path, 'videos_dataset_cognimuse_vid', num2str(i), '_', num2str(n), '.mat']), 'vid');
+           load(strcat([save_path, 'videos_dataset_cognimuse_vid', num2str(i-1), '_', num2str(n), '.mat']), 'vid');
            [H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid,G2,H_data2,S_data2,L_data2,O_data2,i);
            clear vid;
        end
@@ -128,7 +128,7 @@ end
 
 %%-----End of GWENA'S MODIFICATION
 
-%% 1
+%% Obtain features
 % clc
 % clear all;
 clip_struct = clip_struct_all(1);
