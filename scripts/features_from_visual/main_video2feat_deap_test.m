@@ -29,13 +29,13 @@ n = 10;  % 10  % 240;
 save_root = 'saved_mats/deap/features_from_visual/';
 
 %%Save videos
-%vid_arr = {};
-%for i=1:10
-%    vid = get_video_components_totalVideo(file_name_raw_pos{i}, n);
-%    vid_arr{end+1} = vid;
-%    save(strcat([save_root, 'videos_dataset_deap_test_vid', num2str(i), '_', num2str(n), '.mat']), 'vid');
-%    clear vid;
-%end
+vid_arr = {};
+for i=1:10
+    vid = get_video_components_totalVideo(file_name_raw_pos{i}, n);
+    vid_arr{end+1} = vid;
+    save(strcat([save_root, 'videos_dataset_deap_test_vid', num2str(i), '_', num2str(n), '.mat']), 'vid');
+    clear vid;
+end
 
 %%Load videos
 vid_arr = {};
