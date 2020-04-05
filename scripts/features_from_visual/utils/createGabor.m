@@ -18,7 +18,7 @@ function G = createGabor(or, n)
 
 
 Nscales = length(or);
-Nfilters = sum(or)
+Nfilters = sum(or);
 
 l=0;
 for i=1:Nscales
