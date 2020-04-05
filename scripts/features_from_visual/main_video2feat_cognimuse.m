@@ -10,18 +10,14 @@ H_data2 = cell(1,2);S_data2 = cell(1,2);L_data2 = cell(1,2);O_data2 = cell(1,2);
 H_data2{1}.train = [];S_data2{1}.train = [];L_data2{1}.train = [];O_data2{1}.train = [];
 H_data2{2}.test = [];S_data2{2}.test = [];L_data2{2}.test = [];O_data2{2}.test = [];
 
-%%% create gabor file
+% Create Gabor filter
 imageSize = 256;
 orientationsPerScale = [4 4 4];
 G2 = createGabor(orientationsPerScale, imageSize);
 
-%% Video filename
-% Choose the files to extract the features from
-%%%%% fuzzy cluster    means
-%%-----Beginning of GWENA'S MODIFICATION
-
+%% Get data filename and struct info
 root_dir='dataset/cognimuse dataset/';
-list_of_clip_names = {'DEP'}; %{'BMI', 'CHI', 'FNE', 'GLA', 'LOR', 'CRA', 'DEP'};
+list_of_clip_names = {'BMI', 'CHI', 'FNE', 'GLA', 'LOR', 'CRA', 'DEP'}
 list_of_clip_size = [];  % 625   602   605   600   750
 % Get numbers of videos in each clip
 for l=list_of_clip_names
@@ -29,10 +25,10 @@ for l=list_of_clip_names
     files = dir(strcat([root_dir, clip_name, '/video_splices_3secs/*.mp4']));
     list_of_clip_size = [list_of_clip_size, length(files)];
 end
+list_of_clip_size
 
-%% Make struct with clip data
+% Make struct with clip data
 clip_struct_all = [];
-
 for l=1:length(list_of_clip_size)
     clip_struct = struct();
     clip_struct.name = list_of_clip_names{l};
@@ -57,7 +53,7 @@ end
 %n = 125;  % DEAP. 500 used for Lindsey Dataset, where each video is between 3 and 4 minutes
 total_frames = 90;  % 3 seconds of video at 30fps
 n = total_frames/9;
-is_save = false;
+is_save = true;
 is_load = true;
 save_root = 'saved_mats/cognimuse/features_from_visual/';
 if strcmp(clip_name, 'CRA') || strcmp(clip_name, 'DEP')  % test
@@ -126,9 +122,7 @@ if is_load == true
     end
 end
 
-%%-----End of GWENA'S MODIFICATION
-
-%% Obtain features from 'mat'
+%% Obtain features from 'mat' - FCM
 
 clip_struct = clip_struct_all(1);
 clip_name = clip_struct.name
