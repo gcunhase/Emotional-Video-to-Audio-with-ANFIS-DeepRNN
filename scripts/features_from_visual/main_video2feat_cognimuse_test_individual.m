@@ -20,15 +20,16 @@ G2 = createGabor(orientationsPerScale, imageSize);
 %%%%% fuzzy cluster    means
 %%-----Beginning of GWENA'S MODIFICATION
 
-root_dir='dataset/cognimuse dataset/';
-list_of_clip_names = {'DEP'}; %{'BMI', 'CHI', 'FNE', 'GLA', 'LOR', 'CRA', 'DEP'};
+root_dir='dataset/cognimuse dataset/test_individual/';
+list_of_clip_names = {'DEP'};  %, 'DEP'};
 list_of_clip_size = [];  % 625   602   605   600   750
 % Get numbers of videos in each clip
 for l=list_of_clip_names
-    clip_name = l{1};
+    clip_name = l{1}
     files = dir(strcat([root_dir, clip_name, '/video_splices_3secs/*.mp4']));
     list_of_clip_size = [list_of_clip_size, length(files)];
 end
+list_of_clip_size
 
 %% Make struct with clip data
 clip_struct_all = [];
@@ -41,7 +42,7 @@ for l=1:length(list_of_clip_size)
     movie_id = {};
     for i=0:clip_struct.size-1
         movie_id{end+1} = i;
-        file_name_raw_pos{end+1} = strcat(['dataset/cognimuse dataset/', clip_struct.name, '/video_splices_3secs/', num2str(i), '.mp4']);
+        file_name_raw_pos{end+1} = strcat(['dataset/cognimuse dataset/test_individual/', clip_struct.name, '/video_splices_3secs/', num2str(i), '.mp4']);
     end
     clip_struct.movie_id = movie_id;
     clip_struct.file_names = file_name_raw_pos;
@@ -58,14 +59,9 @@ end
 total_frames = 90;  % 3 seconds of video at 30fps
 n = total_frames/9;
 is_save = false;
-is_load = true;
-save_root = 'saved_mats/cognimuse/features_from_visual/';
-if strcmp(clip_name, 'CRA') || strcmp(clip_name, 'DEP')  % test
-    save_root = strcat([save_root, 'test/']);
-else
-    save_root = strcat([save_root, 'train/']);
-end
-mkdir( save_root);
+is_load = false;
+save_root = 'saved_mats/cognimuse/features_from_visual/test_individual/';
+mkdir(save_root);
 
 %%%% Save videos %%%%
 if is_save == true
@@ -118,22 +114,26 @@ if is_load == true
        for i=1:clip_size
            i
            load(strcat([save_path, 'videos_dataset_cognimuse_vid', num2str(i-1), '_', num2str(n), '.mat']), 'vid');
-           [H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid,G2,H_data2,S_data2,L_data2,O_data2,i);
+           [H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid,G2,H_data2,S_data2,L_data2,O_data2,1);
+           save(strcat([save_root, 'HSLO_data_dataset_cognimuse_', clip_name, '_vid', num2str(i-1), '_', num2str(n), '.mat']), 'H_data2', 'S_data2', 'L_data2', 'O_data2', 'movie_id');
            clear vid;
        end
-
-       save(strcat([save_root, 'HSLO_data_dataset_cognimuse_', clip_name, '_', num2str(n), '.mat']), 'H_data2', 'S_data2', 'L_data2', 'O_data2', 'movie_id');
     end
 end
 
 %%-----End of GWENA'S MODIFICATION
 
-%% Obtain features
+%% Obtain features for each video individually
 
-clip_struct = clip_struct_all(1);
-clip_name = clip_struct.name
-n_videos = clip_struct.size
-data_to_load_filename = strcat([save_root, 'HSLO_data_dataset_cognimuse_', clip_name, '_', num2str(n), '.mat']);
-save_feature_filename = {strcat([save_root, 'feature_dataset_cognimuse_', clip_name, '_', num2str(n), '_v7']),...
-                         strcat([save_root, 'number_of_sort_dataset_cognimuse_', clip_name, '_', num2str(n), '_v7'])};
-mat2feat(clip_struct, n_videos, data_to_load_filename, save_feature_filename);
+n_videos = 1;  % 1 because we want the features from each video individually
+for l=1:length(clip_struct_all)
+    clip_struct = clip_struct_all(l);
+    clip_name = clip_struct.name
+    clip_size = clip_struct.size
+    for i=1:clip_size
+        data_to_load_filename = strcat([save_root, 'HSLO_data_dataset_cognimuse_', clip_name, '_vid', num2str(i-1), '_', num2str(n), '.mat']);
+        save_feature_filename = {strcat([save_root, 'feature_dataset_cognimuse_', clip_name, '_vid', num2str(i-1), '_', num2str(n), '_v7']),...
+                                 strcat([save_root, 'number_of_sort_dataset_cognimuse_', clip_name, '_vid', num2str(i-1), '_', num2str(n), '_v7'])};
+        mat2feat(clip_struct, n_videos, data_to_load_filename, save_feature_filename);
+    end
+end
