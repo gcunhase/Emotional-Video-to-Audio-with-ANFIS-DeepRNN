@@ -128,7 +128,7 @@ end
 
 %%-----End of GWENA'S MODIFICATION
 
-%% Obtain features
+%% Obtain features from 'mat'
 
 clip_struct = clip_struct_all(1);
 clip_name = clip_struct.name
@@ -136,4 +136,4 @@ n_videos = clip_struct.size
 data_to_load_filename = strcat([save_root, 'HSLO_data_dataset_cognimuse_', clip_name, '_', num2str(n), '.mat']);
 save_feature_filename = {strcat([save_root, 'feature_dataset_cognimuse_', clip_name, '_', num2str(n), '_v7']),...
                          strcat([save_root, 'number_of_sort_dataset_cognimuse_', clip_name, '_', num2str(n), '_v7'])};
-mat2feat(clip_struct, n_videos, data_to_load_filename, save_feature_filename);
+mat2feat(n_videos, data_to_load_filename, save_feature_filename, 'cognimuse', clip_struct);

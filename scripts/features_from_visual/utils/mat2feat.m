@@ -1,5 +1,8 @@
-function [] = mat2feat(clip_struct, n_videos, data_to_load_filename, save_feature_filename)
+function [] = mat2feat(n_videos, data_to_load_filename, save_feature_filename, data_type, data_info)
 %MAT2FEAT converts videos saved in .mat files to visual features.
+%   data_info: for CONGMUSE data it's 'clip_struct', for others it's
+%   'movie_id'
+
     load(data_to_load_filename);
     %load EEG_GIST
 
@@ -97,7 +100,13 @@ function [] = mat2feat(clip_struct, n_videos, data_to_load_filename, save_featur
 
     %save feature_dataset2_1200 Feature_train
     %save number_of_sort_dataset2_1200 num_sort number_items
-    save(save_feature_filename{1}, 'Feature_train', 'clip_struct', '-v7');
+    if strcmp(data_type, 'cognimuse')
+        clip_struct = data_info;
+        save(save_feature_filename{1}, 'Feature_train', 'clip_struct', '-v7');
+    else
+        movie_id = data_info;
+        save(save_feature_filename{1}, 'Feature_train', 'movie_id', '-v7');
+    end
     save(save_feature_filename{2}, 'num_sort', 'number_items', '-v7');
 
 end

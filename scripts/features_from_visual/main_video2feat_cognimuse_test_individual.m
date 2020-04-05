@@ -123,7 +123,7 @@ end
 
 %%-----End of GWENA'S MODIFICATION
 
-%% Obtain features for each video individually
+%% Obtain features from 'mat' for each video individually
 
 n_videos = 1;  % 1 because we want the features from each video individually
 for l=1:length(clip_struct_all)
@@ -134,6 +134,6 @@ for l=1:length(clip_struct_all)
         data_to_load_filename = strcat([save_root, 'HSLO_data_dataset_cognimuse_', clip_name, '_vid', num2str(i-1), '_', num2str(n), '.mat']);
         save_feature_filename = {strcat([save_root, 'feature_dataset_cognimuse_', clip_name, '_vid', num2str(i-1), '_', num2str(n), '_v7']),...
                                  strcat([save_root, 'number_of_sort_dataset_cognimuse_', clip_name, '_vid', num2str(i-1), '_', num2str(n), '_v7'])};
-        mat2feat(clip_struct, n_videos, data_to_load_filename, save_feature_filename);
+        mat2feat(n_videos, data_to_load_filename, save_feature_filename, 'cognimuse', clip_struct);
     end
 end
