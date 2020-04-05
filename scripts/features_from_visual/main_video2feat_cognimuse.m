@@ -65,7 +65,7 @@ if strcmp(clip_name, 'CRA') || strcmp(clip_name, 'DEP')  % test
 else
     save_root = strcat([save_root, 'train/']);
 end
-mkdir( save_root);
+mkdir(save_root);
 
 %%%% Save videos %%%%
 if is_save == true
