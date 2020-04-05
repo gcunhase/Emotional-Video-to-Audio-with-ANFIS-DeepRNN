@@ -34,7 +34,7 @@ for i=movie_id
     id = i{1}
     vid = vid_arr{id};
 
-    % Reset HSLO variables and Gabor
+    % Reset HSLO and Gabor variables
     H_data2 = cell(1,2);S_data2 = cell(1,2);L_data2 = cell(1,2);O_data2 = cell(1,2);
     H_data2{1}.train = [];S_data2{1}.train = [];L_data2{1}.train = [];O_data2{1}.train = [];
     H_data2{2}.test = [];S_data2{2}.test = [];L_data2{2}.test = [];O_data2{2}.test = [];

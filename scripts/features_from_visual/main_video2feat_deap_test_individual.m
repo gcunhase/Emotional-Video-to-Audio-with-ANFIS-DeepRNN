@@ -32,6 +32,12 @@ mkdir(save_root);
 
 for i=1:video_id
     i
+    % Reset HSLO and Gabor variables
+    H_data2 = cell(1,2);S_data2 = cell(1,2);L_data2 = cell(1,2);O_data2 = cell(1,2);
+    H_data2{1}.train = [];S_data2{1}.train = [];L_data2{1}.train = [];O_data2{1}.train = [];
+    H_data2{2}.test = [];S_data2{2}.test = [];L_data2{2}.test = [];O_data2{2}.test = [];
+    G2 = createGabor(orientationsPerScale, imageSize);
+    % Load
     vid = get_video_components_totalVideo(file_name_raw_pos{1}, n);
     [H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid,G2,H_data2,S_data2,L_data2,O_data2,1);
 

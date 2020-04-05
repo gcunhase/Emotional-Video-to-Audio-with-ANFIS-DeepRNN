@@ -97,17 +97,14 @@ if is_load == true
 
        save_path = strcat([save_root, clip_name, '/']);
 
-       % Reset H, S, O, G
-       H_data2 = cell(1,2);S_data2 = cell(1,2);L_data2 = cell(1,2);O_data2 = cell(1,2);
-       H_data2{1}.train = [];S_data2{1}.train = [];L_data2{1}.train = [];O_data2{1}.train = [];
-       H_data2{2}.test = [];S_data2{2}.test = [];L_data2{2}.test = [];O_data2{2}.test = [];
-       %%% create gabor filer
-       imageSize = 256;
-       orientationsPerScale = [4 4 4];
-       G2 = createGabor(orientationsPerScale, imageSize);
-
        for i=1:clip_size
            i
+           % Reset HSLO and Gabor variables
+           H_data2 = cell(1,2);S_data2 = cell(1,2);L_data2 = cell(1,2);O_data2 = cell(1,2);
+           H_data2{1}.train = [];S_data2{1}.train = [];L_data2{1}.train = [];O_data2{1}.train = [];
+           H_data2{2}.test = [];S_data2{2}.test = [];L_data2{2}.test = [];O_data2{2}.test = [];
+           G2 = createGabor(orientationsPerScale, imageSize);
+           % Load
            load(strcat([save_path, 'videos_dataset_cognimuse_vid', num2str(i-1), '_', num2str(n), '.mat']), 'vid');
            [H_data2,S_data2,L_data2,O_data2] = create_training_data_gwena(vid,G2,H_data2,S_data2,L_data2,O_data2,1);
            save(strcat([save_root, 'HSLO_data_dataset_cognimuse_', clip_name, '_vid', num2str(i-1), '_', num2str(n), '.mat']), 'H_data2', 'S_data2', 'L_data2', 'O_data2', 'movie_id');
