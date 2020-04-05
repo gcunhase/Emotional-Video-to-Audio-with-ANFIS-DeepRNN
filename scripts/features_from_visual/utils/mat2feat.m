@@ -29,11 +29,13 @@ function [Feature_train] = mat2feat(n_videos, data_to_load_filename, save_featur
     train_L = L_data2{1}.train(:,train_num);
     train_O = O_data2{1}.train(:,:,train_num);
 
-    % DEAP = {train: 2016, test: 176}
+    % DEAP = {train: 2016 (n=125), test: 176 (n=10)}
+    % Lindsey: {train (n=500): 3776, test: 96 (n=5), 128 (n=7,8)}
     % COGNIMUSE: n=10 (160), n=125 (2000)
     train_O_size = size(train_O);
     
-    % DEAP = {train: 12600, test: 1100}
+    % DEAP = {train: 12600 (n=125), test: 1100 (n=10)}
+    % Lindsey: {train: 23600 (n=500), test: 600 (n=5), 800 (n=7,8)}
     % COGNIMUSE: n=10 (1000), n=125 (12500)
     train_H_size = size(train_H);
     
