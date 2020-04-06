@@ -6,10 +6,10 @@
 
 clc; clear all;
 %% Settings
-num_emotion = 2; global num_emotion;  % Tested with 1 and 2
+num_emotion = 1; global num_emotion;  % Tested with 1 and 2
 emotion_dim = strcat([num2str(num_emotion), 'd']); global emotion_dim;
 model_type = 'lstm'; global model_type;  % Options = rnn, lstm
-dataset_name = 'lindsey'; global dataset_name;  % Options = lindsey, deap
+dataset_name = 'cognimuse'; global dataset_name;  % Options = lindsey, deap, cognimuse
 tsne_marker_size = 1;
 plot_in_out_seq2seq_output = 0;
 
@@ -38,8 +38,13 @@ model_seq2seq_save_path = strcat([root_save, 'model_', model_type, '/']); global
 results_path = strcat(['results/', dataset_name, '/', model_type, '_', emotion_dim, 'mos/']); global results_path;
 
 %% Load data
-if num_emotion == 2
-    run load_2DMOS_data
+is_save_data = false;
+if is_save_data
+    if num_emotion == 2
+        run load_2DMOS_data
+    else
+        run load_1DMOS_data
+    end
 else
-    run load_1DMOS_data
+    load(strcat([root_save, 'model_data_train_', num2str(num_emotion), 'D_v73.mat'])); % 'input_HSL_dict', 'output_TLR_dict', 'output_audio_equivalent_dict', 'input_mos_num', '-v7.3');
 end

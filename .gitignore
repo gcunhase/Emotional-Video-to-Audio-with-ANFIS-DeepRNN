@@ -17,3 +17,4 @@ dataset/cognimuse*
 results/*/*_*
 !results/*/mturk*.csv
 saved_mats/*/features*
+saved_mats/cognimuse/model_data_train*.mat
