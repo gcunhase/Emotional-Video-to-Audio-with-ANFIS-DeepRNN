@@ -100,4 +100,6 @@ for i=1:size(input_HSL,2)
     end
 end
 
-save(strcat([root_save, 'model_data_train_2D_v73.mat']), 'input_HSL_dict', 'output_TLR_dict', 'output_audio_equivalent_dict', 'input_mos_num', '-v7.3');
+save(strcat([root_save, 'model_data_train_2D_v73.mat']), 'input_HSL', 'input_HSL_dict',...
+ 'output_TLR', 'output_TLR_dict', 'output_audio_equivalent', 'output_audio_equivalent_dict',...
+ 'input_full', 'output_full', 'input_mos_num', 'emotion_mapping', '-v7.3');
