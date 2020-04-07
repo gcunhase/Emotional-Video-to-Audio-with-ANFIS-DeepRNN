@@ -13,6 +13,7 @@ for key = keys(input_HSL_dict)
     T = output_TLR_dict(k);
     
     % Setting: Path to save model
+    mkdir(model_seq2seq_save_path)
     path_to_model = strcat([model_seq2seq_save_path, 'net_', model_type, '_', model_type_emotion, '_', emotion_dim, 'mos_12']);
 
     % 1: format data for seq2seq
