@@ -4,6 +4,7 @@ function [out_fis_train, trnerr, ss, fismat2, chkerr] = train_anfis_model(Xin, X
 %
 
     global model_anfis_save_path emotion_dim mftype numepochs nummfs;
+    mkdir(model_anfis_save_path)
     
     trndata = [Xin, Xout];
     chkdata = trndata;
