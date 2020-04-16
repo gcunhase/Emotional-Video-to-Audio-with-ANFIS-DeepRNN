@@ -1,5 +1,16 @@
+<div align="center"> 
+
+[![Paper](https://img.shields.io/badge/MPE-2020-red.svg)](https://www.hindawi.com/journals/mpe/2020/8478527/)
+[![Paper](https://img.shields.io/badge/arxiv-2004.02113-red.svg)](https://arxiv.org/abs/2004.02113)
+[![Conference](https://img.shields.io/badge/ICONIP-2016-blue.svg)](https://link.springer.com/chapter/10.1007/978-3-319-46672-9_9)
+</div>
+
 ## About
 Repository for paper titled [*"Emotional Video to Audio Transformation Using Deep Recurrent Neural Networks and a Neuro-Fuzzy System"*](https://www.hindawi.com/journals/mpe/2020/8478527/).
+
+  <p align="center">
+  <img src="./results/graphical_abstract.png" height="200" alt="Graphical Abstract">
+  </p>
 
 ### Contents
 [Requirements](#requirements) • [Dataset](#dataset) • [How to Use](#how-to-use) • [How to Cite](#acknowledgement) 
@@ -92,8 +103,9 @@ In case you wish to use this code, please use the following citation:
    JOURNAL={Mathematical Problems in Engineering},
    VOLUME={2020},
    PAGES={1--15},
-   DOI={https://doi.org/10.1155/2020/8478527},
-   YEAR={2020}
+   YEAR={2020},
+   DOI={10.1155/2020/8478527},
+   ISSN={1024-123X}
 }
 ```
 
